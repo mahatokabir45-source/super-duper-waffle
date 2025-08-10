@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Virtual Gift for My Sister 🎁</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #ffefba;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Gift box container */
+  .gift-box {
+    width: 200px;
+    height: 200px;
+    background: #ff5e78;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+  }
+  .gift-box:hover {
+    transform: scale(1.05);
+  }
+
+  /* Gift ribbon */
+  .ribbon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: gold;
+    transform: translateY(-50%);
+  }
+  .ribbon-vertical {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    background: gold;
+    transform: translateX(-50%);
+  }
+
+  /* Lid */
+  .lid {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #ff7e94;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.6s ease;
+  }
+
+  /* Hidden message */
+  .message {
+    position: absolute;
+    top: 220px;
+    width: 300px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(50px);
+    text-align: center;
+    transition: all 0.6s ease;
+  }
+  .message h1 {
+    color: #ff5e78;
+    margin-bottom: 10px;
+  }
+  .message p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  .heart {
+    font-size: 2rem;
+    animation: pulse 1.5s infinite;
+  }
+
+  /* Animation */
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); color: #ff6b81; }
+    50% { transform: scale(1.2); color: #ff3b5c; }
+  }
+
+  /* Open state */
+  .open .lid {
+    transform: translateY(-100px) rotate(-20deg);
+    opacity: 0;
+  }
+  .open .message {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<div class="gift-container">
+  <div class="gift-box" id="gift">
+    <div class="lid"></div>
+    <div class="ribbon"></div>
+    <div class="ribbon-vertical"></div>
+  </div>
+  <div class="message" id="message">
+    <h1>To My Amazing Sister ❤️</h1>
+    <p>You are the sunshine in my life and the best gift I could ever ask for.  
+    May your days be filled with happiness, love, and endless smiles.  
+    This is my virtual hug for you! <span class="heart">💖</span></p>
+  </div>
+</div>
+
+<audio id="unwrapSound">
+  <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const gift = document.getElementById('gift');
+  const container = document.querySelector('.gift-container');
+  const sound = document.getElementById('unwrapSound');
+
+  gift.addEventListener('click', () => {
+    container.classList.add('open');
+    sound.play();
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
